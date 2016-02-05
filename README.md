@@ -25,11 +25,11 @@ links each test.
 
 ## Check Macros
 ```cpp
-wzl_EQUAL(a, b)               //Compare two variables, pointers, values, etc.
-wzl_TRUE(a)                   //Check if passed condition is true.
-wzl_STR_EQUAL(a, b)           //Compare two strings.
-wzl_MEM_EQUAL(a, b, numBytes) //Compare two memory regions.
-                              //            -> Use for arrays, structs, etc.
+wzl_EQUAL(a, b);               //Compare two variables, pointers, values, etc.
+wzl_TRUE(a);                   //Check if passed condition is true.
+wzl_STR_EQUAL(a, b);           //Compare two strings.
+wzl_MEM_EQUAL(a, b, numBytes); //Compare two memory regions.
+                               //            -> Use for arrays, structs, etc.
 ```
 Every winzling symbol is prefixed `wzl_`.
 
@@ -45,7 +45,7 @@ As in every unit test framework they're called before (setup) and after
 Add a function for every test:
 ```cpp
 static void test_something() {
-    wzl_EQUAL(a, b);
+    wzl_EQUAL(1, 2);
 }
 ```
 You're free to choose any name you like, the only constraint is the signature
