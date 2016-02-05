@@ -5,6 +5,8 @@
  *
  * MIT License (MIT)
  *
+ * visit: https://github.com/84n4n4j03/winzling
+ *
  */
 
 #ifndef WINZLING_H_
