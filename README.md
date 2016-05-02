@@ -10,7 +10,7 @@ Of course you can also add it as git submodule to you project.
 ## Usage
 "example_test" contains everything available. Find some sections below
 explaining the most important things.
-Currently the idea is to build one executable per test.
+The easiest way is to build one executable per test.
 This is straightworward when developing in one test.
 Use linker substitution for isolation and mocking to reduce the amount of
 files to build. Of course f2fp works as well.
@@ -21,6 +21,8 @@ rule. Accumulate the returned error level to count the total errors.
 
 Another option is to hook them to a root Makefile that builds all c-files and
 links each test.
+
+Also you can write a little bit of code and simply group them as testuites.
 
 
 ## Check Macros
@@ -34,17 +36,17 @@ wzl_MEM_EQUAL(a, b, numBytes); //Compare two memory regions.
 Every winzling symbol is prefixed `wzl_`.
 
 ## Basic Usage
-Provide implementations for setup and teardown (mandatory):
+Write setup, teardown, and test routines as simple void functions:
 ```cpp
-void wzl_setup(){}
-void wzl_teardown(){}
+void setup(){}
+void teardown(){}
 ```
-As in every unit test framework they're called before (setup) and after
-(teardown) each test.
+As in most unit test frameworks `setup` is called before and `teardown` after
+each test.
 
 Add a function for every test:
 ```cpp
-static void test_something() {
+void test_something() {
     wzl_EQUAL(1, 2);
 }
 ```
@@ -64,7 +66,7 @@ It returns the number of errors. You can forward them as errorlevel to the
 calling command line by returning them in your main like so:
 ```cpp
 int main() {
-    return wzl_RUN(tests);
+    return wzl_RUN("test_name", setup, teardown, tests);
 }
 ```
 That's it.

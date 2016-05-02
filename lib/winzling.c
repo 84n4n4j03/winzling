@@ -18,7 +18,7 @@ static uint32_t numErrors = 0;
 static void printReport(uint32_t numTests, uint32_t numErrors) {
     printf("==========================\n");
     printf("number of tests:        %d\n", numTests);
-    printf("number of errors:       %d\n", numErrors);
+    printf("number of errors:       %d\n\n", numErrors);
 }
 
 uint32_t wzl_run(char* name, wzl_function setup, wzl_function teardown, wzl_function* tests, uint32_t numTests) {

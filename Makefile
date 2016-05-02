@@ -12,8 +12,8 @@ default: example_test
 
 %: clean %.c
 	@echo compiling and running: $@
-	@gcc $@.c lib/winzling.c -o out/example_test
-	@./$@
+	@gcc $@.c lib/winzling.c -o out/$@
+	@./out/$@
 
 
 clean:
