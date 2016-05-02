@@ -8,16 +8,15 @@
 # visit: https://github.com/84n4n4j03/winzling
 #
 
-C_SRC = \
-example_test.c \
-lib/winzling.c \
+default: example_test
 
-test: clean example_test
-	./example_test
+%: clean %.c
+	@echo compiling and running: $@
+	@gcc $@.c lib/winzling.c -o out/example_test
+	@./$@
 
-example_test:
-	gcc $(C_SRC) -o example_test
 
 clean:
-	rm -f example_test
+	@rm -rf out/
+	@mkdir out
 
